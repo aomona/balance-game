@@ -1,10 +1,4 @@
 function setPosition () {
-	
-}
-let x = 2
-let y = 2
-led.plot(x, y)
-basic.forever(function () {
     if (input.rotation(Rotation.Roll) < -30) {
         x = 0
     } else if (input.rotation(Rotation.Roll) < -20) {
@@ -28,4 +22,12 @@ basic.forever(function () {
         y = 2
     }
     led.plot(x, y)
+}
+let y = 0
+let x = 0
+x = 2
+y = 2
+led.plot(x, y)
+basic.forever(function () {
+    setPosition()
 })
