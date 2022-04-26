@@ -1,5 +1,13 @@
+function judge () {
+    if (x == 5 || y == 5) {
+        basic.clearScreen()
+        basic.showIcon(IconNames.No)
+    }
+}
 function setPosition () {
-    if (input.rotation(Rotation.Roll) < -30) {
+    if (input.rotation(Rotation.Roll) < -40 || input.rotation(Rotation.Roll) > 40) {
+        x = 5
+    } else if (input.rotation(Rotation.Roll) < -30) {
         x = 0
     } else if (input.rotation(Rotation.Roll) < -20) {
         x = 1
@@ -10,7 +18,9 @@ function setPosition () {
     } else {
         x = 2
     }
-    if (input.rotation(Rotation.Pitch) < -30) {
+    if (input.rotation(Rotation.Pitch) < -40 || input.rotation(Rotation.Pitch) > 40) {
+        y = 5
+    } else if (input.rotation(Rotation.Pitch) < -30) {
         y = 0
     } else if (input.rotation(Rotation.Pitch) < -20) {
         y = 1
@@ -30,4 +40,5 @@ y = 2
 led.plot(x, y)
 basic.forever(function () {
     setPosition()
+    judge()
 })
