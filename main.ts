@@ -60,4 +60,7 @@ basic.forever(function () {
         setPosition()
         judge()
     }
+    serial.writeNumber(x)
+    serial.writeNumber(y)
+    serial.writeLine("" + (game2))
 })
