@@ -2,6 +2,20 @@ function judge () {
     if (x == 5 || y == 5) {
         basic.clearScreen()
         basic.showIcon(IconNames.No)
+        game2 = 1
+    }
+    count = 0
+    for (let i = 0; i <= 4; i++) {
+        for (let j = 0; j <= 4; j++) {
+            if (led.point(i, j)) {
+                count += 1
+            }
+        }
+    }
+    if (count == 25) {
+        basic.clearScreen()
+        basic.showIcon(IconNames.Happy)
+        game2 = 2
     }
 }
 function setPosition () {
@@ -33,12 +47,17 @@ function setPosition () {
     }
     led.plot(x, y)
 }
+let count = 0
+let game2 = 0
 let y = 0
 let x = 0
 x = 2
 y = 2
+game2 = 0
 led.plot(x, y)
 basic.forever(function () {
-    setPosition()
-    judge()
+    if (game2 == 0) {
+        setPosition()
+        judge()
+    }
 })
